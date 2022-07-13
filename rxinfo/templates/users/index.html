@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %} User Listing {% endblock %}
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th><th>Email</th><th>Phone</th><th>Date Created</th><th>Date Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.fname }} - {{ user.lname }}</td>
+            <td>{{ user['email'] }}</td>
+            <td>{{ user['mobile'] }}</td>
+            <td>{{ user['modified'] }}</td>
+            <td>{{ user['created'] }}</td>
+        </tr>     
+    {% endfor %}
+    </tbody>
+{% endblock %}
