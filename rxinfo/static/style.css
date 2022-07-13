@@ -2424,8 +2424,12 @@ table.dataTable{
     padding:33px 30px;
     border-radius:7px
 }
-.sidebar .logo img{
-    width:100%
+/* .sidebar .logo img{ width:100% } */
+.sidebar .logo img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: -38px;
 }
 @media(max-width:991px){
     .sidebar .logo{
@@ -3068,7 +3072,7 @@ body::-webkit-scrollbar{
     -webkit-transition:.5s;
     transition:.5s;
     background-size:cover;
-    background-image:url(../img/diamond.png)
+    background-image:url(img/diamond.png)
 }
 @media(max-width:575.98px){
     .single_element .single_quick_activity{
@@ -4348,15 +4352,15 @@ canvas#highlights{
     background-repeat:no-repeat
 }
 .custom_striped_progressbar .progress-bar.green_bar{
-    background-image:url(../img/progress/progress-bg.png);
+    background-image:url(img/progress/progress-bg.png);
     background-size:cover
 }
 .custom_striped_progressbar .progress-bar.yellow_bar{
-    background-image:url(../img/progress/design-progress-yellow.png);
+    background-image:url(img/progress/design-progress-yellow.png);
     background-size:cover
 }
 .custom_striped_progressbar .progress-bar.red_bar{
-    background-image:url(../img/progress/design-progress-red.png);
+    background-image:url(img/progress/design-progress-red.png);
     background-size:cover
 }
 .custom_lms_radio_2 label{
@@ -4884,7 +4888,7 @@ canvas#highlights{
     position:absolute;
     width:100%;
     height:437px;
-    background-image:url(../img/card2.jpg);
+    background-image:url(img/card2.jpg);
     background-position:50%;
     background-size:cover;
     z-index:3;

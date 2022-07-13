@@ -1,21 +1,25 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - RxInfo</title>
-<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-<script src="{{ url_for('static', filename='js/jquery1-3.4.1.min.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/metisMenu.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/jquery.barfiller.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/summernote-bs4.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/tagsinput.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/custom.js') }}"></script> 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/metisMenu.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='themify-icons.css') }}">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}{% endblock %} - RxInfo</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/jquery1-3.4.1.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/metisMenu.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/jquery.barfiller.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/summernote-bs4.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/tagsinput.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/metisMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='themify-icons.css') }}">
+</head>
 <body class="crm_body_bg">
     <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="{{url_for('static', filename='img/logo.png')}}" alt="" /></a>
+            <a href="index.html"><img src="{{url_for('static', filename='img/logo1.png')}}" alt="" /></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -183,7 +187,13 @@
         {% for message in get_flashed_messages() %}
             <div class="flash">{{ message }}</div>
         {% endfor %}
-        {% block content %}{% endblock %}
+        <div class="main_content_iner">
+            <div class="container-fluid p-0">
+                <div class="row justify-content-center">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
         <div class="footer_part">
             <div class="container">
                 <div class="row">

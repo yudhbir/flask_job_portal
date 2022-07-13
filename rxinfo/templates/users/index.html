@@ -1,66 +1,61 @@
 {% extends 'layout.html' %}
 {% block title %} User Listing {% endblock %}
 {% block content %}
-<div class="main_content_iner">
-    <div class="container-fluid p-0">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="QA_section">
-                    <div class="white_box_tittle list_header">
-                        <h4>Table</h4>
-                        <div class="box_right d-flex lms_block">
-                            <div class="serach_field_2">
-                                <div class="search_inner">
-                                    <form active="#">
-                                        <div class="search_field">
-                                            <input type="text" placeholder="Search content here..." />
-                                        </div>
-                                        <button type="submit"><i class="ti-search"></i></button>
-                                    </form>
-                                </div>
+<div class="col-12">
+    <div class="QA_section">
+        <div class="white_box_tittle list_header">
+            <h4>Table</h4>
+            <div class="box_right d-flex lms_block">
+                <div class="serach_field_2">
+                    <div class="search_inner">
+                        <form active="#">
+                            <div class="search_field">
+                                <input type="text" placeholder="Search content here..." />
                             </div>
-                            <div class="add_button ms-2">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" class="btn_1">Add New</a>
-                            </div>
-                        </div>
+                            <button type="submit"><i class="ti-search"></i></button>
+                        </form>
                     </div>
-                    <div class="QA_table mb_30">
-                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                            <table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1522px;">
-                                <thead>
-                                    <tr role="row">
-                                        <th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 137px;" aria-sort="ascending" aria-label="Name: activate to sort column descending" > Name </th>
-                                        <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 210px;" aria-label="Email: activate to sort column ascending">Email</th>
-                                        <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 205px;" aria-label="Phone: activate to sort column ascending">Phone</th>
-                                        <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 193px;" aria-label="Lesson: activate to sort column ascending">Date Created</th>
-                                        <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 98px;" aria-label="Enrolled: activate to sort column ascending">Date Modified</th>
-                                    </tr>
-                                </thead>
-                                <tbody>                                    
-                                    {% for user in users %}
-                                        <tr role="row" class="odd">
-                                            <td>{{ user.fname }} - {{ user.lname }}</td>
-                                            <td>{{ user['email'] }}</td>
-                                            <td>{{ user['mobile'] }}</td>
-                                            <td>{{ user['modified'] }}</td>
-                                            <td>{{ user['created'] }}</td>
-                                        </tr>     
-                                    {% endfor %}                                    
-                                </tbody>
-                            </table>
-                            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 11 entries</div>
-                            <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="ti-arrow-left"></i></a>
-                                <span>
-                                    <a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a>
-                                </span>
-                                <a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next"><i class="ti-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="add_button ms-2">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" class="btn_1">Add New</a>
                 </div>
             </div>
         </div>
+        <div class="QA_table mb_30">
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1522px;">
+                    <thead>
+                        <tr role="row">
+                            <th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 137px;" aria-sort="ascending" aria-label="Name: activate to sort column descending" > Name </th>
+                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 210px;" aria-label="Email: activate to sort column ascending">Email</th>
+                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 205px;" aria-label="Phone: activate to sort column ascending">Phone</th>
+                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 193px;" aria-label="Lesson: activate to sort column ascending">Date Created</th>
+                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 98px;" aria-label="Enrolled: activate to sort column ascending">Date Modified</th>
+                        </tr>
+                    </thead>
+                    <tbody>                                    
+                        {% for user in users %}
+                            <tr role="row" class="odd">
+                                <td>{{ user.fname }} - {{ user.lname }}</td>
+                                <td>{{ user['email'] }}</td>
+                                <td>{{ user['mobile'] }}</td>
+                                <td>{{ user['modified'] }}</td>
+                                <td>{{ user['created'] }}</td>
+                            </tr>     
+                        {% endfor %}                                    
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-</div>
+</div>        
 {% endblock %}
