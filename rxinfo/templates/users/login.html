@@ -22,13 +22,20 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                    {% include 'alerts/alert.html' %}                    
+                    {% include 'alerts/alert.html' %} 
+                    
+                    {% if form.email.errors[0] %}
+                        <ul class="errors">                       
+                            <li>{{ form.email.errors[0] }}</li>                       
+                        </ul>
+                    {% endif %}                   
                     <div class="modal-content cs_modal">
                       <div class="modal-header">
                         <h5 class="modal-title">Log in</h5>
                       </div>
                       <div class="modal-body">
                         <form method=post>
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                           <div class="row social_login_btn">
                             <div class="form-group col-md-6 text-center">
                               <a href="#" class="btn_1 full_width" style="background-color: #4267b2 !important;"><i class="fab fa-facebook-square"></i>Log in with Facebook</a >

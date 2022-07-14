@@ -4,26 +4,31 @@ from flask import (Blueprint, flash, g, redirect, render_template, request, url_
 from werkzeug.security import generate_password_hash, check_password_hash
 # from rxinfo.auth import login_required
 from rxinfo.decorator import login_required,authorize
+from rxinfo.forms import LoginForm
 
 @app.route('/login', methods=['GET', 'POST'])
 @authorize
 def login():
+    form = LoginForm()
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        cursor = db.cursor(dictionary=True)    
-        cursor.execute("SELECT * FROM tbl_users WHERE email=%s", (email,))
-        user = cursor.fetchone() 
-        print(user)   
-        if user and check_password_hash(user['password'], password):
-            user['isloggedin']='true'
-            session['AuthUser'] = user
-            return redirect(url_for('dashboard'))
+        if form.validate_on_submit():
+            email = request.form['email']
+            password = request.form['password']
+            cursor = db.cursor(dictionary=True)    
+            cursor.execute("SELECT * FROM tbl_users WHERE email=%s", (email,))
+            user = cursor.fetchone() 
+            print(user)   
+            if user and check_password_hash(user['password'], password):
+                user['isloggedin']='true'
+                session['AuthUser'] = user
+                return redirect(url_for('dashboard'))
+            else:
+                flash('You are valid user. Please check.','error')
+                return redirect(url_for('login'))
         else:
-            flash('You are valid user. Please check.','error')
-            return redirect(url_for('login'))  
+            return render_template('users/login.html', form=form)          
     else:
-        return render_template('users/login.html')
+        return render_template('users/login.html',form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
 @authorize
@@ -52,7 +57,7 @@ def forgot_password():
 @app.route('/logout')
 def logout():
     # remove the username from the session if it's there
-    session.pop('user', None)
+    session['AuthUser']=None
     return redirect(url_for('login'))
 
 @app.route('/dashboard')
