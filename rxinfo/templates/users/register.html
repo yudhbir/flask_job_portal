@@ -1,44 +1,72 @@
-{% extends 'layout.html' %}
-{% block title %} User Listing {% endblock %}
-{% block content %}
-<div class="col-lg-12">
-    <div class="white_box mb_30">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="modal-content cs_modal">
-            <div class="modal-header">
-              <h5 class="modal-title">Log in</h5>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="row social_login_btn">
-                  <div class="form-group col-md-12 text-center">
-                    <a href="#" class="btn_1 full_width" ><i class="fab fa-facebook-square"></i>Log in with Facebook</a >
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}{% endblock %} - RxInfo</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <script src="{{ url_for('static', filename='js/jquery1-3.4.1.min.js') }}"></script>   
+</head>
+<body class="crm_body_bg">
+  <section class="main_content dashboard_part" style="padding: 0;">
+    <div class="main_content_iner">
+      <div class="container-fluid p-0">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="white_box mb_30">
+                <div class="row justify-content-center">
+                  <div class="logo center-flex justify-content-between">
+                      <a href="index.html"><img src="{{url_for('static', filename='img/logo1.png')}}" alt="" /></a>
+                      <div class="sidebar_close_icon d-lg-none">
+                          <i class="ti-close"></i>
+                      </div>
                   </div>
-                  <div class="form-group col-md-12 text-center">
-                    <a href="#" class="btn_1 full_width" ><i class="fab fa-google"></i>Log in with Google</a >
+                  <div class="col-lg-6">
+                    <div class="modal-content cs_modal">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Log in</h5>
+                      </div>
+                      <div class="modal-body">
+                        <form method=post>
+                          <div class="row social_login_btn">
+                            <div class="form-group col-md-6 text-center">
+                              <a href="#" class="btn_1 full_width" style="background-color: #4267b2 !important;"><i class="fab fa-facebook-square"></i>Log in with Facebook</a >
+                            </div>
+                            <div class="form-group col-md-6 text-center">
+                              <a href="#" class="btn_1 full_width" style="background-color: #97151b !important;"><i class="fab fa-google"></i>Log in with Google</a >
+                            </div>
+                          </div>
+                          <div class="border_style"> <span>Or</span> </div>
+                          <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Full Name" name="full_name"/>
+                          </div>
+                          <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Enter your email" name="email"/>
+                          </div>
+                          <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Password" name="password"/>
+                          </div>
+                          <input type="submit" class="btn_1 full_width text-center" value="Register">
+                          <p>
+                            Already an account?
+                            <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal" href="{{url_for('login')}}" > Sign In</a >
+                          </p>
+                          <div class="text-center">
+                            <a href="{{url_for('forgot_password')}}" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn" >Forget Password?</a >
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="border_style"> <span>Or</span> </div>
-                <div class="">
-                  <input type="text" class="form-control" placeholder="Enter your email" />
-                </div>
-                <div class="">
-                  <input type="password" class="form-control" placeholder="Password" />
-                </div>
-                <a href="#" class="btn_1 full_width text-center">Log in</a>
-                <p>
-                  Need an account?
-                  <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal" href="#" > Sign Up</a >
-                </p>
-                <div class="text-center">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn" >Forget Password?</a >
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
-  </div>
-  {% endblock %} 
+  </section>
+</body>
+<style>
+  .center-flex { display: block; text-align: center; }
+</style>
+<html>

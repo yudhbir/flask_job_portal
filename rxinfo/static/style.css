@@ -1430,19 +1430,19 @@ p a:hover{
     border-color:#16bbe5
 }
 .btn_1{
-    background-color:#2daab8;
-    border:1px solid #2daab8;
-    color:#fff;
-    display:inline-block;
-    padding:11px 23px;
-    text-transform:capitalize;
-    line-height:16px;
-    font-size:13px;
-    font-weight:500;
-    border-radius:5px;
-    white-space:nowrap;
-    -webkit-transition:.5s;
-    transition:.5s
+    background-color:#2daab8 !important;
+    border:1px solid #2daab8 !important;
+    color:#fff !important;
+    display:inline-block !important;
+    padding:11px 23px !important;
+    text-transform:capitalize !important;
+    line-height:16px !important;
+    font-size:13px !important;
+    font-weight:500 !important;
+    border-radius:5px !important;
+    white-space:nowrap !important;
+    -webkit-transition:.5s !important;
+    transition:.5s !important
 }
 .btn_1 i{
     font-size:15px;

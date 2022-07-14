@@ -28,7 +28,7 @@
                         <tr role="row">
                             <th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 137px;" aria-sort="ascending" aria-label="Name: activate to sort column descending" > Name </th>
                             <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 210px;" aria-label="Email: activate to sort column ascending">Email</th>
-                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 205px;" aria-label="Phone: activate to sort column ascending">Phone</th>
+                            <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 205px;" aria-label="Phone: activate to sort column ascending">Status</th>
                             <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 193px;" aria-label="Lesson: activate to sort column ascending">Date Created</th>
                             <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 98px;" aria-label="Enrolled: activate to sort column ascending">Date Modified</th>
                         </tr>
@@ -36,11 +36,17 @@
                     <tbody>                                    
                         {% for user in users %}
                             <tr role="row" class="odd">
-                                <td>{{ user.fname }} - {{ user.lname }}</td>
+                                <td>{{ user.full_name }}</td>
                                 <td>{{ user['email'] }}</td>
-                                <td>{{ user['mobile'] }}</td>
-                                <td>{{ user['modified'] }}</td>
-                                <td>{{ user['created'] }}</td>
+                                <td>    
+                                    {% if user['status']== 1 %}
+                                    <span class="badge bg-success">Active</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">Inactive</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ user['created_on'] }}</td>
+                                <td>{{ user['updated_on'] }}</td>
                             </tr>     
                         {% endfor %}                                    
                     </tbody>
