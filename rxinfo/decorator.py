@@ -12,7 +12,8 @@ def login_required(f):
 def authorize(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if session['AuthUser']:
-            return redirect(url_for('dashboard'))
+        if session.get('AuthUser'):
+            if session['AuthUser'] :
+                return redirect(url_for('dashboard'))
         return f(*args, **kwargs)
     return decorated_function

@@ -5716,3 +5716,8 @@ canvas#highlights{
     transition:.3s;
     transform:scale(1)
 }
+.error { 
+    width: 100%; 
+    font-size: 16px;
+    color: #dc3545;
+}

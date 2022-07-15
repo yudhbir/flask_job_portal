@@ -6,6 +6,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from rxinfo.decorator import login_required,authorize
 from rxinfo.forms import LoginForm
 
+@app.route('/', methods=['GET'])
+def index_page():
+  return redirect(url_for('login'))
+
 @app.route('/login', methods=['GET', 'POST'])
 @authorize
 def login():
@@ -66,5 +70,5 @@ def dashboard():
     cursor = db.cursor(dictionary=True)
     cursor.execute(''' select * FROM tbl_users order by id desc limit 10 ''')
     records =cursor.fetchall()    
-    return render_template('users/index.html', users=records)
+    return render_template('user_management/index.html', users=records)
     # return jsonify(records)

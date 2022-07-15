@@ -22,13 +22,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                    {% include 'alerts/alert.html' %} 
-                    
-                    {% if form.email.errors[0] %}
-                        <ul class="errors">                       
-                            <li>{{ form.email.errors[0] }}</li>                       
-                        </ul>
-                    {% endif %}                   
+                    {% include 'alerts/alert.html' %}  
                     <div class="modal-content cs_modal">
                       <div class="modal-header">
                         <h5 class="modal-title">Log in</h5>
@@ -47,9 +41,15 @@
                           <div class="border_style"> <span>Or</span> </div>
                           <div class="">
                             <input type="text" class="form-control" placeholder="Enter your email" name="email"/>
+                            {% if form.email.errors[0] %}
+                              <div class="error">{{ form.email.errors[0] }}</div>
+                            {% endif %} 
                           </div>
                           <div class="">
                             <input type="password" class="form-control" placeholder="Password" name="password"/>
+                            {% if form.password.errors[0] %}
+                              <div class="error">{{ form.password.errors[0] }}</div>
+                            {% endif %}
                           </div>
                           <input type="submit" class="btn_1 full_width text-center" value="Log in">
                           <p>
