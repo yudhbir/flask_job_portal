@@ -8,5 +8,5 @@ from rxinfo.forms import LoginForm
 user = Blueprint('users', __name__, url_prefix='/user')
 
 @user.route('/edit', methods=['GET'])
-def edit_user():
+def add_user():
   return render_template('user_management/add.html')

@@ -18,12 +18,11 @@
     <li class="">
         <a class="has-arrow" href="#" aria-expanded="false">
             <img src="{{url_for('static', filename='img/menu-icon/2.svg')}}" alt="" />
-            <span>Pages</span>
+            <span>Users</span>
         </a>
         <ul class="mm-collapse">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="resister.html">Register</a></li>
-            <li><a href="forgot_pass.html">Forgot Password</a></li>
+            <li><a href="{{url_for('users.add_user')}}">Create User</a></li>
+            <li><a href="resister.html">Manage Users</a></li>
         </ul>
     </li>
     <li class="">

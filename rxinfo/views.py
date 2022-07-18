@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # from rxinfo.auth import login_required
 from rxinfo.decorator import login_required,authorize
 from rxinfo.forms import LoginForm
+from rxinfo.models.model import Users
 
 @app.route('/', methods=['GET'])
 def index_page():
@@ -64,11 +65,14 @@ def logout():
     session['AuthUser']=None
     return redirect(url_for('login'))
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET'], defaults={"page": 1}) 
+@app.route('/dashboard/<int:page>',methods=['GET'])
 @login_required
-def dashboard():
-    cursor = db.cursor(dictionary=True)
-    cursor.execute(''' select * FROM tbl_users order by id desc limit 10 ''')
-    records =cursor.fetchall()    
+def dashboard(page):
+    # cursor = db.cursor(dictionary=True)
+    # cursor.execute(''' select * FROM tbl_users order by id desc limit 10 ''')
+    # records =cursor.fetchall()   
+    per_page = 1
+    records = Users.query.order_by(Users.id.desc()).paginate(page,per_page,error_out=False)    
     return render_template('user_management/index.html', users=records)
     # return jsonify(records)
