@@ -17,18 +17,30 @@
                 <div class="form-group">
                   <label for="first_name">First Name</label>
                   <input type="text" class="form-control" name="first_name" placeholder="Enter your First Name">
+                    {% if form.first_name.errors[0] %}
+                        <div class="error">{{ form.first_name.errors[0] }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
                     <input type="text" class="form-control" name="last_name" placeholder="Enter your Last Name">
+                    {% if form.last_name.errors[0] %}
+                        <div class="error">{{ form.last_name.errors[0] }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" name="email" placeholder="Enter your Email">
+                    {% if form.email.errors[0] %}
+                        <div class="error">{{ form.email.errors[0] }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="date_of_birth">Date Birth</label>
                     <input type="text" class="form-control" name="date_of_birth" placeholder="Enter your Date Birth">
+                    {% if form.date_of_birth.errors[0] %}
+                        <div class="error">{{ form.date_of_birth.errors[0] }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
@@ -36,10 +48,16 @@
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                     </select>
+                    {% if form.gender.errors[0] %}
+                        <div class="error">{{ form.gender.errors[0] }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-group">                    
-                    <label for="date_of_birth">Age</label>
-                    <input type="text" class="form-control" name="age" placeholder="Enter your Age">                   
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" name="age" placeholder="Enter your Age"> 
+                    {% if form.age.errors[0] %}
+                        <div class="error">{{ form.age.errors[0] }}</div>
+                    {% endif %}                  
                 </div>
                 <div class="form-group">
                     <label for="date_of_birth">&nbsp;</label>

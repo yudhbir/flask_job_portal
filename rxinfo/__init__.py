@@ -15,7 +15,7 @@ db = connection.MySQLConnection(user='root', password='', host='127.0.0.1', data
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1/db_stay_healthy'
 
-DB2 = SQLAlchemy(app)
+DB = SQLAlchemy(app)
 
 csrf = CSRFProtect(app)
 
