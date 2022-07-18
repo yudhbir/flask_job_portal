@@ -187,7 +187,7 @@
 	// 		$(this).addClass('layout_style_selected');
 	// 	}
 	// });
-	$("#sidebar_menu").metisMenu();
+	// $("#sidebar_menu").metisMenu();
 	$("#admin_profile_active").metisMenu();
 	$('.switcher_wrap li.Horizontal').click(function() {
 		$('.sidebar').addClass('hide_vertical_menu');
@@ -223,5 +223,15 @@
 				$(".pCard_add i").toggleClass("fa-minus");
 			});
 		});
+	});
+	$("#sidebar_menu").on('click','li>a',function(evt){
+		console.log('test');
+		$(this).each(function(){
+			$(this).removeClass('mm-active')
+			$(this).find('ul').removeClass('mm-collapse')
+		})
+		let current_ele=evt.target;
+		$(current_ele).addClass('mm-active');
+		$(current_ele).find('ul').removeClass('mm-collapse')
 	});
 }(jQuery));

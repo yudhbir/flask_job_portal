@@ -35,7 +35,6 @@
                     </thead>
                     <tbody>                                    
                         {% for user in users.items %} 
-                        {{user}}
                             <tr role="row" class="odd">
                                 <td>{{ user.full_name }}</td>
                                 <td>{{ user['email'] }}</td>
@@ -52,7 +51,7 @@
                         {% endfor %}                                    
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
+                <div aria-label="Page navigation example" style="float: right;margin: 12px 0;">
                      <ul class="pagination">
                     <!-- previous page -->
                     {% if users.has_prev %}
@@ -81,7 +80,7 @@
                         <li  class="page-item"><a class="page-link" href="{{ url_for('dashboard', page=users.next_num) }}">Next</a></li>
                     {% endif %}     
                     </ul> 
-                </nav>
+                </div>
             </div>
         </div>
     </div>

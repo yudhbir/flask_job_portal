@@ -1,18 +1,17 @@
 {% extends 'layout.html' %}
 {% block title %} User Listing {% endblock %}
 {% block content %}
-<div class="col-12">
+<div class="col-8">
     <div class="QA_section">
         <div class="white_box_tittle list_header">
             <h4>Add Patient</h4>
             <div class="box_right d-flex lms_block">                
                 <div class="add_button ms-2">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" class="btn_1">Back</a>
+                    <a href="{{url_for('dashboard')}}" class="btn_1">Back</a>
                 </div>
             </div>
         </div>
-        <div class="QA_table mb_30">
-            <p>User Add section setup</p>
+        <div class="QA_table mb_30">            
             <form method="post">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="form-group">
@@ -33,18 +32,19 @@
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select name="gender" placeholder="Enter your Gender">
+                    <select name="gender" class="form-control" placeholder="Enter your Gender">
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="date_of_birth">Age</label>
-                        <input type="text" class="form-control" name="age" placeholder="Enter your Age">
-                    </div>
+                <div class="form-group">                    
+                    <label for="date_of_birth">Age</label>
+                    <input type="text" class="form-control" name="age" placeholder="Enter your Age">                   
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="date_of_birth">&nbsp;</label>
+                    <button type="submit" class="form-control btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
     </div>
